@@ -4,6 +4,7 @@ services:
     build:
       context: .
     networks:
+      - frontnet
       - backnet
     environment:
       DB_NAME: postgres
@@ -25,4 +26,5 @@ services:
     networks:
       - backnet
 networks:
+  frontnet:
   backnet:
