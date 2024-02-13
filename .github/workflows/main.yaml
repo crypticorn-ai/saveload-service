@@ -83,4 +83,5 @@ jobs:
             aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin ${{ env.ECR_REGISTRY }}
             cd /home/ubuntu/${{ env.SERVICE_NAME }}
             echo "SECRET_KEY='${{ env.DJANGO_SECRET_KEY }}'" > .env
+            docker compose pull
             docker compose up -d
