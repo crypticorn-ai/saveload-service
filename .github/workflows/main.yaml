@@ -10,8 +10,8 @@ env:
   ECR_REPO: crypticorn-trading-platform
   ACTIONS_ROLE: arn:aws:iam::643578112146:role/GitHubActionsStack-GitHubActionsRole4F1BBA26-4zweCyfcNyU5
   SERVICE_NAME: saveload-service
-  EC2_HOST: ${{ secrets.EC2_HOST }}
-  EC2_SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+  EC2_HOST: ${{ github.ref == 'refs/heads/main' && secrets.EC2_HOST || secrets.EC2_HOST_DEV }}
+  EC2_SSH_PRIVATE_KEY: ${{ github.ref == 'refs/heads/main' && secrets.EC2_SSH_PRIVATE_KEY || secrets.EC2_SSH_PRIVATE_KEY_DEV }}
   DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
 jobs:
   build:
