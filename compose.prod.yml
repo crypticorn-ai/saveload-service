@@ -1,0 +1,3 @@
+services:
+  saveload:
+    image: 643578112146.dkr.ecr.eu-west-1.amazonaws.com/crypticorn-trading-platform:saveload-service-main
